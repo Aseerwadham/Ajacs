@@ -1,6 +1,6 @@
 FROM ubuntu/apache2
 LABEL author="asee" 
-RUN apt-get install unzip -y
+RUN /bin/sh -c apt-get install unzip -y
 RUN mkdir deploy && cd deploy
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page296/little-fashion.zip .
 WORKDIR deploy
