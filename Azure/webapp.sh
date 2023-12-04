@@ -1,7 +1,7 @@
 #!/bin/bash
-"sudo yum install httpd -y"
-"wget https://www.free-css.com/assets/files/free-css-templates/download/page296/klinik.zip"
-"sudo unzip klinik.zip"
-"sudo mv ./clinic-website-template /var/www/html/"
-"sudo systemctl enable httpd"
-"sudo systemctl start httpd"
+"sudo apt install apache2 unzip -y"
+"wget https://www.free-css.com/assets/files/free-css-templates/download/page296/little-fashion.zip"
+"sudo unzip little-fashion.zip"
+"sudo cp -rf ./2127_little_fashion /var/www/html/"
+"sudo systemctl enable apache2.service"
+"sudo systemctl start apache2.service"

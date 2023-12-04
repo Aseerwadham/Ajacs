@@ -4,7 +4,7 @@ variable "rg_info" {
     location = string
   })
   default = {
-    location = "East US"
+    location = "East Asia"
     rg_name  = "rg"
   }
 }
@@ -68,9 +68,9 @@ variable "image_info" {
     version   = string
   })
   default = {
-    offer     = "CentOS"
-    publisher = "OpenLogic"
-    sku       = "8_5-gen2"
+    offer     = "0001-com-ubuntu-server-focal"
+    publisher = "Canonical"
+    sku       = "20_04-lts"
     version   = "latest"
   }
 }
