@@ -4,6 +4,7 @@ pipeline {
         stage (Manual_Steps) {
             steps {
                 sh '''
+                    "sudo apt update",
                     "sudo apt install apache2 unzip -y",
                     "wget https://www.free-css.com/assets/files/free-css-templates/download/page296/little-fashion.zip",
                     "sudo unzip little-fashion.zip",
