@@ -1,18 +1,43 @@
+// pipeline {
+//     agent { label ('Asee_Jenkins')}
+//     trigger { }
+//     stages {
+//         stage (Manual_Steps) {
+//             steps {
+//                 sh '''
+//                     sudo apt update
+//                     sudo apt install apache2 unzip -y
+//                     wget https://www.free-css.com/assets/files/free-css-templates/download/page296/little-fashion.zip
+//                     sudo unzip little-fashion.zip
+//                     sudo cp -rf ./2127_little_fashion /var/www/html/
+//                     sudo systemctl enable apache2.service
+//                     sudo systemctl start apache2.service
+//                 '''
+                
+//             }
+
+//         }
+//     }
+// }
 pipeline {
     agent { label ('Asee_Jenkins')}
+    triggers { pollSCM ('* * * * *') }
     stages {
-        stage (Manual_Steps) {
+        stage ('VCS') {
+            steps {
+                git url: 'https://github.com/Aseerwadham/Ajacs.git',
+                    branch: 'Terraform'
+            }
+        }
+        stage ('terraform') {
             steps {
                 sh '''
-                    sudo apt update
-                    sudo apt install apache2 unzip -y
-                    wget https://www.free-css.com/assets/files/free-css-templates/download/page296/little-fashion.zip
-                    sudo unzip little-fashion.zip
-                    sudo cp -rf ./2127_little_fashion /var/www/html/
-                    sudo systemctl enable apache2.service
-                    sudo systemctl start apache2.service
+                    terraform init
+                    terraform fmt
+                    terraform validate
+                    terraform plan
+                    terraform apply --auto-approve
                 '''
-                
             }
 
         }
