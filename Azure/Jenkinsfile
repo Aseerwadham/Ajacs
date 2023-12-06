@@ -32,6 +32,7 @@ pipeline {
         stage ('terraform') {
             steps {
                 sh '''
+                    cd Azure
                     terraform init
                     terraform fmt
                     terraform validate
