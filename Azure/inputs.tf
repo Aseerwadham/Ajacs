@@ -56,8 +56,8 @@ variable "vm_info" {
   default = {
     vm_name     = "redvm"
     vm_size     = "Standard_B1s"
-    vm_username = ""
-    vm_password = ""
+    vm_username = "Aseerwadham"
+    vm_password = "Asee@1234567"
   }
 }
 variable "image_info" {
@@ -79,3 +79,4 @@ variable "rollout_version" {
   default = "0.0.0.2"
 
 }
+
